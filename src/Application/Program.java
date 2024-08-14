@@ -31,11 +31,25 @@ public class Program {
 		
 		System.out.println("---- Pedido ----");
 		
-		System.out.println("Informe quantidade de bolos vendidos: ");
+		System.out.println("Informe quantidade de itens vendidos: ");
 		int vendidos = sc.nextInt();
 		sc.nextLine();
-		double total = vendidos * valorItem;
-		System.out.print("Valor total da compra: " + total );
+		
+		if (vendidos > estoque) {
+			
+			System.out.println("Não há em estoque a quantidade desejada do item " + produto);
+			int itensFaltando = vendidos - estoque;
+			System.out.println("No momento só há em estoque " + estoque 
+					+ " unidades do item " + produto);
+			System.out.println("Faltam " + itensFaltando + " unidades do item " 
+			+ produto + " para que a venda possa ser finalizada." );
+		}
+		
+		else {
+			double total = vendidos * valorItem;
+			System.out.print("Valor total da compra: R$" + String.format("%.2f",total));
+		}
+		
 		
 		
 			
